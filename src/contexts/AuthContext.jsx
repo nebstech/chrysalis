@@ -11,13 +11,12 @@ export const AuthContext = createContext({
   loaded: false,
 });
 
-export function AuthContextProvider(props) {
+export function AuthContextProvider({ children }) {
   const [storedToken, setStoredToken] = useState(() => {
     try {
-      verifyUser();
       return getToken();
     } catch (e) {
-      console.error('Error during initial token verification:', e);
+      console.error('Error during initial token retrieval:', e);
       return null;
     }
   });
@@ -89,12 +88,11 @@ export function AuthContextProvider(props) {
         register,
       }}
     >
-      {props.children}
+      {children}
     </AuthContext.Provider>
   );
 }
 
-// Add prop-types validation
 AuthContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };

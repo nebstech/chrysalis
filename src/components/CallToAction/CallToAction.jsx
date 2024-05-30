@@ -6,7 +6,7 @@ function CallToAction() {
     <section className={styles.callToAction}>
       <h2 className={styles.title}>Join Chrysalis Today</h2>
       <p className={styles.description}>Start connecting with clients and growing your freelance career.</p>
-      <a href="/register" className={styles.ctaButton}>Sign Up Now</a>
+      <a href="/auth?mode=register" className={styles.ctaButton}>Sign Up Now</a>
     </section>
   );
 }

@@ -3,7 +3,7 @@ import styles from './Features.module.css';
 
 function Features() {
   return (
-    <section className={styles.features}>
+    <section className={styles.features} id='about'>
       <h2 className={styles.title}>Why Choose Chrysalis?</h2>
       <div className={styles.featureList}>
         <div className={styles.featureItem}>

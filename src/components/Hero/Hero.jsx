@@ -10,7 +10,7 @@ function Hero() {
         <p className={styles.description}>
           Chrysalis is your go-to platform for finding and offering freelance services. Connect with clients, showcase your skills, and grow your career.
         </p>
-        <a href="/register" className={styles.contactBtn}>Get Started</a>
+        <a href="/auth" className={styles.contactBtn}>Get Started</a>
       </div>
       <img src={getImageUrl('hero/hero.jpg')} alt="hero image" className={styles.heroImg} />
       
