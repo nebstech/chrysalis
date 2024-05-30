@@ -1,0 +1,49 @@
+.features {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: var(--color-bg);
+  margin-top: 10%;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: var(--color-primary);
+}
+
+.featureList {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.featureItem {
+  width: 30%;
+  padding: 30px;
+  text-align: left;
+  background-color: #e7e4e4;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.featureItem:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: var(--color-accent); /* Electric Blue */
+}
+
+p {
+  font-size: 16px;
+  margin-top: 10px;
+  color: var(--color-secondary); /* Dark Gray */
+  line-height: 1.6;
+}

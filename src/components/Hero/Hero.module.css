@@ -1,0 +1,49 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px;
+  margin-top: 10%;
+  
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #333333; /* Charcoal color */
+  background: linear-gradient(90deg, #1E90FF, #333333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.description {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.contactBtn {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+.heroImg {
+  flex: 1;
+  max-width: 500px;
+  border-radius: 10px;
+}
+

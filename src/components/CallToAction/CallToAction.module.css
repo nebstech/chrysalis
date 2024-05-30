@@ -1,0 +1,28 @@
+.callToAction {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: var(--color-accent);
+  color: white;
+  margin-top: 5%;
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.ctaButton {
+  background-color: white;
+  color: var(--color-accent);
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
