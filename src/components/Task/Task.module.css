@@ -1,0 +1,56 @@
+@import '../../vars.css';
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.textLarge {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.textSmall {
+  font-size: 0.9rem;
+}
+
+.badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.gray {
+  background-color: rgba(128, 128, 128, 0.5);
+}
+
+.blue {
+  background-color: rgba(0, 0, 255, 0.7);
+}
+
+.gold {
+  background-color: rgba(255, 165, 0, 0.7);
+}
+
+.green {
+  background-color: rgba(0, 128, 0, 0.5);
+}
+
+.red {
+  background-color: rgba(255, 0, 0, 0.5);
+}

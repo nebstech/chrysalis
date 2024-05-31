@@ -1,0 +1,52 @@
+@import '../../vars.css';
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  padding: 20px;
+}
+
+.welcomeText {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tabList {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.tabTrigger {
+  padding: 10px 20px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+  color: var(--font-color);
+}
+
+.tabTrigger:hover {
+  border-color: #1E90FF;
+}
+
+.active {
+  border-color: #1E90FF;
+}
+
+.tabContent {
+  width: 100%;
+}

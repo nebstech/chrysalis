@@ -1,0 +1,33 @@
+.selectContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.selectTrigger {
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selectContent {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.selectContainer:hover .selectContent {
+  display: block;
+}
+
+.selectItem {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.selectItem:hover {
+  background-color: #f1f1f1;
+}
