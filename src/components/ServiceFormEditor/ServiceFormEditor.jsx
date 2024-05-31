@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useParams, Link } from 'react-router-dom';
 import {
   ServiceCheckboxField,
-  ServiceCreationFormData,
-  ServiceField,
   ServiceRadioField,
   ServiceTextField,
   sanitize,
@@ -210,3 +209,7 @@ export default function ServiceFormEditor({ onCommit }) {
     </div>
   );
 }
+
+ServiceFormEditor.propTypes = {
+  onCommit: PropTypes.func.isRequired,
+};

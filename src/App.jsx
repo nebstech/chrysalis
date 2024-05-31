@@ -4,6 +4,7 @@ import styles from './App.module.css';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Authentication from './components/Auth/Auth';
 import Dashboard from './pages/Dashboard/Dashboard';
+import CreateService from './pages/CreateService/CreateService';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path='/auth' element={<Authentication />} />
           <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/:userID/services/create' element={<CreateService />} />
         </Routes>
       </div>
     </Router>

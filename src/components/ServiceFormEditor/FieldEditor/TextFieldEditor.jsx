@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './TextFormField.module.css';
+import styles from './TextFieldEditor.module.css';
 import { ServiceTextField, ServiceField } from '../../../classes/service/formField';
 
 export default function TextFormField({ field, onChange }) {

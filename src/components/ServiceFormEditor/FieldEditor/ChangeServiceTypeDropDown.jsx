@@ -1,43 +1,23 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { ServiceField, formFieldTypes } from '../../../classes/service/formField';
-import ServiceType from './ServiceType';
-import styles from './ChangeServiceTypeDropdown.module.css';
+import React from 'react';
 
-export default function ChangeServiceTypeDropdown({ field, onSelect }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleSelect = (type) => {
-    onSelect(type);
-    setIsOpen(false);
+const ChangeServiceTypeDropdown = ({ field, onSelect }) => {
+  const handleChange = (event) => {
+    onSelect(event.target.value);
   };
 
   return (
-    <div className={styles.selectContainer}>
-      <div 
-        className={styles.selectTrigger}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {field.type}
-      </div>
-      {isOpen && (
-        <div className={styles.selectContent}>
-          {formFieldTypes.map((type, idx) => (
-            <div 
-              key={idx}
-              className={styles.selectItem}
-              onClick={() => handleSelect(type)}
-            >
-              <ServiceType type={type} />
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+    <select value={field.type} onChange={handleChange}>
+      <option value="text">Text</option>
+      <option value="radio">Radio</option>
+      <option value="checkbox">Checkbox</option>
+    </select>
   );
-}
+};
 
 ChangeServiceTypeDropdown.propTypes = {
-  field: PropTypes.instanceOf(ServiceField).isRequired,
+  field: PropTypes.object.isRequired,
   onSelect: PropTypes.func.isRequired,
 };
+
+export default ChangeServiceTypeDropdown;
