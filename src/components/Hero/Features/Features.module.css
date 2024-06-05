@@ -1,8 +1,10 @@
 .features {
   padding: 60px 20px;
   text-align: center;
-  background-color: var(--color-bg);
-  margin-top: 10%;
+  position: relative;
+  z-index: 1;
+  margin: 10% auto;
+  width: 80%;
 }
 
 .title {
@@ -14,19 +16,17 @@
 }
 
 .featureList {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .featureItem {
-  width: 30%;
-  padding: 30px;
-  text-align: left;
-  background-color: #e7e4e4;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: left;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -35,15 +35,20 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
+.featureIcon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
 h3 {
-  font-size: 26px;
+  font-size: 22px;
   margin-bottom: 15px;
-  color: var(--color-accent); /* Electric Blue */
+  color: var(--color-accent);
 }
 
 p {
   font-size: 16px;
   margin-top: 10px;
-  color: var(--color-secondary); /* Dark Gray */
+  color: var(--color-secondary);
   line-height: 1.6;
 }

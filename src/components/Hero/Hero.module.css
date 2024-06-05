@@ -1,3 +1,5 @@
+@import "../../vars.css";
+
 .container {
   position: relative;
   display: flex;
@@ -6,46 +8,77 @@
   margin: 0 auto;
   padding: 20px;
   max-width: 1200px;
-  margin-top: 10%;
-  
+  margin-top: 4%;
 }
 
 .content {
-  flex: 1;
+  flex: 1; /* Make the content take up space */
   padding: 20px;
+  text-align: left; /* Align text to the left for a similar look */
 }
 
 .title {
   font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 600;
   color: #333333; /* Charcoal color */
-  background: linear-gradient(90deg, #1E90FF, #333333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
 }
 
 .description {
   font-size: 18px;
-  margin-bottom: 20px;
+  color: #666666; /* Slightly lighter text color for the description */
+  margin-bottom: 40px;
 }
 
 .contactBtn {
-  background-color: var(--color-accent);
+  background-color: #6C63FF; /* Adjust color as needed */
   color: white;
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-weight: 600;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.imageContainer {
+  flex: 1; /* Adjust flex to fit the layout */
+  position: relative;
+  max-width: 650px;
+  height: 700px; 
+  overflow: hidden;
+  border-radius: 6px;
+  margin-left: 20%; /* Apply 20% margin left */
+}
+
+.slideshow {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  animation: scroll 15s linear infinite;
 }
 
 .heroImg {
-  flex: 1;
-  max-width: 650px;
-  border-radius: 10px;
-  opacity: 0.9;
-  transition: opacity 0.5s ease-in-out;
+  flex: 0 0 95%;
+  height: 95%;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 8px;
 }
 
+@keyframes scroll {
+  0%, 10%, 25% {
+    transform: translateY(0);
+  }
+  30%, 45%, 60% {
+    transform: translateY(-100%);
+  }
+  65%, 80%, 95% {
+    transform: translateY(-200%);
+  }
+  100% {
+    transform: translateY(-300%);
+  }
+}
