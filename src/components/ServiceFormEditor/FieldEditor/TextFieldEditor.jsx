@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './FieldEditor.module.css';
+import styles from './TextFieldEditor.module.css';
 
 const TextFieldEditor = ({ field, onChange }) => {
   const handleChange = (e) => {

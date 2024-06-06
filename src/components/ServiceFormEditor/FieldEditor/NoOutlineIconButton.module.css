@@ -1,0 +1,20 @@
+.iconButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.iconButton:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.iconButton:focus {
+  outline: none;
+}
+
+.iconButton:active {
+  background-color: rgba(0, 0, 0, 0.2);
+}

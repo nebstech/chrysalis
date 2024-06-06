@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { createTask, getUserServiceById } from '../../services/apiServices';
+import { createDefaultField } from '../../classes/service/service';
 import TaskFieldEditor from './TaskFieldEditor/TaskFieldEditor';
 import styles from './SubmitTaskForm.module.css';
 
@@ -15,12 +16,18 @@ export default function SubmitTaskForm() {
       if (userID === undefined || servID === undefined) {
         return;
       }
-      const service = await getUserServiceById(Number(servID));
-      setService(service);
-      setFilledFields(service.fields.map((field) => createDefaultField(field)));
+      try {
+        const service = await getUserServiceById(Number(servID));
+        setService(service);
+        setFilledFields(service.fields.map((field) => createDefaultField(field)));
+      } catch (error) {
+        console.error('Error fetching service:', error);
+        // Handle the error by showing an appropriate message or redirecting
+        navigate('/error'); // Redirect to an error page or display an error message
+      }
     };
     runner();
-  }, [userID, servID]);
+  }, [userID, servID, navigate]);
 
   if (service === null) return <></>;
 
@@ -36,8 +43,13 @@ export default function SubmitTaskForm() {
     if (servID === undefined || filledFields === undefined) {
       return;
     }
-    await createTask(Number(servID), filledFields);
-    navigate(`/${userID}/services/${servID}`)
+    try {
+      await createTask(Number(servID), filledFields);
+      navigate(`/${userID}/services/${servID}`);
+    } catch (error) {
+      console.error('Error creating task:', error);
+      // Optionally show an error message to the user
+    }
   }
 
   return (

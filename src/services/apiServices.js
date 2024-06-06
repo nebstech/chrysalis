@@ -136,6 +136,7 @@ export async function getUserServices(userID) {
 }
 
 export async function getUserServiceById(servID) {
+  ('Fetching service by ID:', servID); // Debugging log
   try {
     const { data } = await api.get(`/api/services/${servID}/`);
     return loadService(data);
@@ -144,6 +145,7 @@ export async function getUserServiceById(servID) {
     throw error;
   }
 }
+
 
 export async function getUserOutboundTasks(username) {
   try {
@@ -214,6 +216,46 @@ export async function getUserInfo(userID) {
     };
   } catch (error) {
     console.error("Error fetching user info:", error);
+    throw error;
+  }
+}
+
+export async function getClientById(clientID) {
+  try {
+    const { data } = await api.get(`/api/clients/${clientID}/`);
+    return data; // Assuming the client data does not need to be loaded/processed like service data
+  } catch (error) {
+    console.error("Error fetching client by ID:", error);
+    throw error;
+  }
+}
+
+
+export async function getUserDetailsById(userId) {
+  try {
+    const { data } = await api.get(`/api/users/${userId}/details/`);
+    return data;
+  } catch (error) {
+    console.error('Error fetching user details by ID:', error); // Debugging log
+    throw error;
+  }
+}
+
+export async function updateUserInfo(userID, profileData) {
+  try {
+    const { data } = await api.put(`/api/profile/`, {
+      username: profileData.username,
+      email: profileData.email,
+      password: profileData.password,
+      profile: {
+        bio: profileData.bio,
+        location: profileData.location,
+        birth_date: profileData.birth_date
+      }
+    });
+    return data;
+  } catch (error) {
+    console.error("Error updating user info:", error);
     throw error;
   }
 }

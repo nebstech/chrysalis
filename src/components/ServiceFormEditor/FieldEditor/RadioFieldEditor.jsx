@@ -1,39 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './FieldEditor.module.css';
+import styles from './RadioFieldEditor.module.css';
+import NoOutlineIconButton from './NoOutlineIconButton';
+import { Cross1Icon, PlusIcon } from '@radix-ui/react-icons';
 
 const RadioFieldEditor = ({ field, onChange }) => {
   const handleOptionChange = (index) => (event) => {
-    const newOptions = [...field.options];
+    const newOptions = [...field.choices];
     newOptions[index] = event.target.value;
-    onChange({ ...field, options: newOptions });
+    onChange({ ...field, choices: newOptions });
   };
 
   const addOption = () => {
-    const newOptions = [...field.options, ''];
-    onChange({ ...field, options: newOptions });
+    onChange({ ...field, choices: [...field.choices, ''] });
   };
 
   const removeOption = (index) => () => {
-    const newOptions = field.options.filter((_, i) => i !== index);
-    onChange({ ...field, options: newOptions });
+    const newOptions = field.choices.filter((_, i) => i !== index);
+    onChange({ ...field, choices: newOptions });
   };
 
   return (
     <div>
       <label>
         {field.prompt}
-        {(field.options || []).map((option, index) => (
-          <div key={index} className={styles.option}>
+        {(field.choices || []).map((option, index) => (
+          <div key={index} className={styles.optionContainer}>
             <input
               type="text"
               value={option}
               onChange={handleOptionChange(index)}
+              className={styles.input}
             />
-            <button onClick={removeOption(index)}>✕</button>
+            <NoOutlineIconButton onClick={removeOption(index)}>
+              <Cross1Icon />
+            </NoOutlineIconButton>
           </div>
         ))}
-        <button onClick={addOption}>Add Option</button>
+        <button onClick={addOption} className={styles.addButton}>
+          <PlusIcon /> Add option
+        </button>
       </label>
     </div>
   );
@@ -42,7 +48,7 @@ const RadioFieldEditor = ({ field, onChange }) => {
 RadioFieldEditor.propTypes = {
   field: PropTypes.shape({
     prompt: PropTypes.string.isRequired,
-    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    choices: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
   onChange: PropTypes.func.isRequired,
 };

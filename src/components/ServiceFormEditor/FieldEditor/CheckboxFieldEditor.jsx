@@ -1,40 +1,42 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './FieldEditor.module.css';
+import styles from './CheckboxFieldEditor.module.css';
 
 const CheckboxFieldEditor = ({ field, onChange }) => {
   const handleOptionChange = (index) => (event) => {
-    const newOptions = [...field.options];
-    newOptions[index] = event.target.value;
-    onChange({ ...field, options: newOptions });
+    const newChoices = [...field.choices];
+    newChoices[index] = event.target.value;
+    onChange({ ...field, choices: newChoices });
   };
 
-  const addOption = () => {
-    const newOptions = [...field.options, ''];
-    onChange({ ...field, options: newOptions });
+  const addChoice = () => {
+    onChange({ ...field, choices: [...field.choices, ''] });
   };
 
-  const removeOption = (index) => () => {
-    const newOptions = field.options.filter((_, i) => i !== index);
-    onChange({ ...field, options: newOptions });
+  const removeChoice = (index) => () => {
+    if (field.choices.length > 1) {
+      const newChoices = field.choices.filter((_, idx) => idx !== index);
+      onChange({ ...field, choices: newChoices });
+    }
   };
 
   return (
     <div>
       <label>
         {field.prompt}
-        {(field.options || []).map((option, index) => (
-          <div key={index} className={styles.option}>
+        {field.choices.map((choice, index) => (
+          <div key={index} className={styles.choiceContainer}>
             <input
               type="text"
-              value={option}
+              value={choice}
               onChange={handleOptionChange(index)}
+              className={styles.choiceInput}
             />
-            <button onClick={removeOption(index)}>✕</button>
+            <button onClick={removeChoice(index)} className={styles.removeButton}>✕</button>
           </div>
         ))}
-        <button onClick={addOption}>Add Option</button>
       </label>
+      <button onClick={addChoice} className={styles.addButton}>Add Choice</button>
     </div>
   );
 };
@@ -42,7 +44,7 @@ const CheckboxFieldEditor = ({ field, onChange }) => {
 CheckboxFieldEditor.propTypes = {
   field: PropTypes.shape({
     prompt: PropTypes.string.isRequired,
-    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    choices: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
   onChange: PropTypes.func.isRequired,
 };
