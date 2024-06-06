@@ -1,6 +1,9 @@
 .container {
   padding: 16px;
   background-color: #f9f9f9;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5%;
 }
 
 .flexColumn {
@@ -88,4 +91,88 @@
 
 .dialog button:hover {
   background-color: #0056b3;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+}
+
+.iconButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.iconButton {
+  padding: 8px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.iconButton:hover {
+  background-color: #0056b3;
+}
+
+.fieldEditor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.promptLabel {
+  font-weight: bold;
+}
+
+.textField {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.option button {
+  padding: 8px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.option button:hover {
+  background-color: #c82333;
+}
+
+.choices button {
+  padding: 8px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.choices button:hover {
+  background-color: #218838;
 }

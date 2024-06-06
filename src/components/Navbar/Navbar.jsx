@@ -15,13 +15,21 @@ export const Navbar = () => {
     navigate('/auth');
   };
 
+  const handleLogoClick = () => {
+    if (loggedInUserID) {
+      navigate('/dashboard');
+    } else {
+      navigate('/');
+    }
+  };
+
   const isHomepage = location.pathname === '/';
 
   return (
     <nav className={styles.navbar}>
-      <Link className={styles.logoLink} to="/">
+      <div className={styles.logoLink} onClick={handleLogoClick}>
         <img src={getImageUrl('nav/navIcon.jpeg')} alt="Nav Icon" className={styles.navIcon} />
-      </Link>
+      </div>
       {!isHomepage && (
         <div className={styles.menu}>
           <img
@@ -34,7 +42,7 @@ export const Navbar = () => {
             <ul className={`${styles.menuitems} ${menuOpen && styles.menuOpen}`} onClick={() => setMenuOpen(false)}>
               <li><Link to="/dashboard">Home</Link></li>
               <li><Link to="/services">Services</Link></li>
-              <li><Link to="/profile">Profile</Link></li>
+              <li><Link to={`/profile/${loggedInUserID}`}>Profile</Link></li>
               {loggedInUserID ? (
                 <li><Link to="/search">Search</Link></li>
               ) : (

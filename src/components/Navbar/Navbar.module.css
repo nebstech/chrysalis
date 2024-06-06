@@ -80,6 +80,7 @@
   height: 40px;
   width: auto;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 /* Responsive styling */

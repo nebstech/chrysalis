@@ -5,6 +5,7 @@ import { getAllServices } from '../../services/apiServices';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import styles from './Search.module.css';
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
+import { Navbar } from '../../components/Navbar/Navbar';
 
 
 export default function Search() {
@@ -26,6 +27,7 @@ export default function Search() {
 
   return (
     <>
+    <Navbar />
     <div className={styles.flexColumn}>
       <div className={styles.searchField}>
         <input

@@ -4,6 +4,7 @@ import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import { getUserServices } from '../../services/apiServices';
 import { AuthContext } from '../../contexts/AuthContext';
 import styles from './UserServices.module.css';
+import { Navbar } from '../../components/Navbar/Navbar';
 
 export default function UserServices() {
   const { userID } = useParams();
@@ -19,6 +20,8 @@ export default function UserServices() {
   }, [userID]);
 
   return (
+    <>
+    <Navbar />
     <div className={styles.container}>
       <h2 className={styles.heading}>Services</h2>
       {userID !== null && Number(userID) === loggedInUserID && (
@@ -34,5 +37,6 @@ export default function UserServices() {
         ))}
       </div>
     </div>
+    </>
   );
 }

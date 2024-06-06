@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './FieldEditor.module.css';
 
 const RadioFieldEditor = ({ field, onChange }) => {
   const handleOptionChange = (index) => (event) => {
@@ -8,18 +9,31 @@ const RadioFieldEditor = ({ field, onChange }) => {
     onChange({ ...field, options: newOptions });
   };
 
+  const addOption = () => {
+    const newOptions = [...field.options, ''];
+    onChange({ ...field, options: newOptions });
+  };
+
+  const removeOption = (index) => () => {
+    const newOptions = field.options.filter((_, i) => i !== index);
+    onChange({ ...field, options: newOptions });
+  };
+
   return (
     <div>
       <label>
         {field.prompt}
         {(field.options || []).map((option, index) => (
-          <input
-            key={index}
-            type="text"
-            value={option}
-            onChange={handleOptionChange(index)}
-          />
+          <div key={index} className={styles.option}>
+            <input
+              type="text"
+              value={option}
+              onChange={handleOptionChange(index)}
+            />
+            <button onClick={removeOption(index)}>✕</button>
+          </div>
         ))}
+        <button onClick={addOption}>Add Option</button>
       </label>
     </div>
   );

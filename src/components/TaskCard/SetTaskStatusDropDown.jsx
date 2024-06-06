@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './SetTaskStatusDropdown.module.css';
+import styles from './SetTaskStatusDropDown.module.css';
 import { TaskStatuses } from '../../classes/service/service';
 import StatusTab from '../StatusTab/StatusTab';
 
-const SetTaskStatusDropdown = ({ status, onSelect }) => {
+const SetTaskStatusDropDown = ({ status, onSelect }) => {
   return (
     <div className={styles.dropdown}>
       <select value={status} onChange={(e) => onSelect(e.target.value)} className={styles.select}>
@@ -17,4 +17,4 @@ const SetTaskStatusDropdown = ({ status, onSelect }) => {
   );
 };
 
-export default SetTaskStatusDropdown;
+export default SetTaskStatusDropDown;

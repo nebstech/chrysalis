@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ChangeServiceTypeDropdown = ({ field, onSelect }) => {
   const handleChange = (event) => {

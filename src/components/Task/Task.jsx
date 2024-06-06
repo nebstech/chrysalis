@@ -19,22 +19,16 @@ function Task({ task }) {
   useEffect(() => {
     const runner = async () => {
       try {
-        console.log('Fetching service with ID:', task.serviceID);
         const service = await getUserServiceById(task.serviceID);
-        console.log('Service data:', service);
         setService(service);
       } catch (error) {
-        console.error('Error fetching service:', error);
         setError('Service not found');
       }
 
       try {
-        console.log('Fetching client with ID:', task.client);
         const client = await getUserServiceById(Number(task.client));
-        console.log('Client data:', client);
         setClient(client);
       } catch (error) {
-        console.error('Error fetching client:', error);
         setError('Client not found');
       }
     };

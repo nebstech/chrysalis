@@ -13,16 +13,14 @@ const FieldEditor = ({ field, onChange, onMoveUp, onMoveDown, onDelete, onReplac
       theField = <TextFieldEditor field={field} onChange={onChange} />;
       break;
     case 'radio':
-      // Ensure options are initialized
       if (!field.options) {
-        field.options = [];
+        field.options = [''];
       }
       theField = <RadioFieldEditor field={field} onChange={onChange} />;
       break;
     case 'checkbox':
-      // Ensure options are initialized
       if (!field.options) {
-        field.options = [];
+        field.options = [''];
       }
       theField = <CheckboxFieldEditor field={field} onChange={onChange} />;
       break;

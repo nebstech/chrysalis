@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './TaskCard.module.css';
 import { Cross1Icon } from '@radix-ui/react-icons'; // You can replace this with another icon library if you want
-import SetTaskStatusDropdown from './SetTaskStatusDropdown';
+import SetTaskStatusDropDown from './SetTaskStatusDropDown'
 import TaskDetail from '../TaskDetail/TaskDetail';
 
 const TaskCard = ({ task, service, onStatusChange, onDelete }) => {
@@ -23,7 +23,7 @@ const TaskCard = ({ task, service, onStatusChange, onDelete }) => {
                 Details
               </button>
             </div>
-            <SetTaskStatusDropdown status={task.status} onSelect={onStatusChange} />
+            <SetTaskStatusDropDown status={task.status} onSelect={onStatusChange} />
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@ const TaskCard = ({ task, service, onStatusChange, onDelete }) => {
         <div className={styles.dialogOverlay}>
           <div className={styles.dialogContent}>
             <div className={styles.dialogHeader}>
-              <SetTaskStatusDropdown status={task.status} onSelect={onStatusChange} />
+              <SetTaskStatusDropDown status={task.status} onSelect={onStatusChange} />
               <button className={styles.button} onClick={onDelete}>Delete Task</button>
             </div>
             <TaskDetail
