@@ -1,3 +1,4 @@
+// src/components/TaskDetail/TaskDetailField/TaskDetailField.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import TaskDetailCheckboxField from './TaskDetailCheckboxField.jsx';
@@ -45,10 +46,13 @@ const radioFieldShape = PropTypes.shape({
 const checkboxFieldShape = PropTypes.shape({
   type: PropTypes.string.isRequired,
   prompt: PropTypes.string.isRequired,
-  value: PropTypes.arrayOf(PropTypes.string),
   choices: PropTypes.arrayOf(PropTypes.string).isRequired,
 });
 
 TaskDetailField.propTypes = {
-  field: PropTypes.oneOfType([textFieldShape, radioFieldShape, checkboxFieldShape]).isRequired,
+  field: PropTypes.oneOfType([
+    textFieldShape,
+    radioFieldShape,
+    checkboxFieldShape,
+  ]).isRequired,
 };
