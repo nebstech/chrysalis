@@ -1,0 +1,13 @@
+[build]
+  base = "/"
+  publish = "build"  # This should match the directory where your build output is generated
+  command = "npm run build"
+
+[build.environment]
+  VITE_API_URL = "https://your-heroku-app.herokuapp.com"
+  VITE_SESSION_KEY = "insecure-session-key"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
