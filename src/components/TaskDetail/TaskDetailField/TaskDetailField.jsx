@@ -1,8 +1,10 @@
 
 import PropTypes from 'prop-types';
-import TaskDetailCheckboxField from './TaskDetailCheckboxField.jsx';
-import TaskDetailRadioField from './TaskDetailRadioField.jsx';
-import TaskDetailTextField from './TaskDetailTextField.jsx';
+import TaskDetailTextField from '/src/components/TaskDetail/TaskDetailField/TaskDetailTextField.jsx';
+import TaskDetailRadioField from '/src/components/TaskDetail/TaskDetailField/TaskDetailRadioField.jsx';
+import TaskDetailCheckboxField from '/src/components/TaskDetail/TaskDetailField/TaskDetailCheckboxField.jsx';
+
+
 
 export default function TaskDetailField({ field }) {
   let elem;
