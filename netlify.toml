@@ -1,14 +1,11 @@
 [build]
   base = "/"
-  publish = "dist" 
+  publish = "dist"
   command = "npm run build"
 
 [build.environment]
   VITE_API_URL = "https://chrysalis-955f5f2f7411.herokuapp.com"
   VITE_SESSION_KEY = "insecure-session-key"
-
-[[plugins]]
-  package = "@netlify/plugin-cache-clear"
 
 [[redirects]]
   from = "/*"
