@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TaskDetailCheckboxField from './TaskDetailField/TaskDetailCheckboxField.jsx';
-import TaskDetailRadioField from './TaskDetailField/TaskDetailRadioField.jsx';
-import TaskDetailTextField from './TaskDetailField/TaskDetailTextField.jsx';
+import TaskDetailCheckboxField from './TaskDetailCheckboxField.jsx';
+import TaskDetailRadioField from './TaskDetailRadioField.jsx';
+import TaskDetailTextField from './TaskDetailTextField.jsx';
 
 export default function TaskDetailField({ field }) {
   let elem;
@@ -29,10 +29,26 @@ export default function TaskDetailField({ field }) {
   );
 }
 
+const textFieldShape = PropTypes.shape({
+  type: PropTypes.string.isRequired,
+  prompt: PropTypes.string.isRequired,
+  value: PropTypes.string,
+});
+
+const radioFieldShape = PropTypes.shape({
+  type: PropTypes.string.isRequired,
+  prompt: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  choices: PropTypes.arrayOf(PropTypes.string).isRequired,
+});
+
+const checkboxFieldShape = PropTypes.shape({
+  type: PropTypes.string.isRequired,
+  prompt: PropTypes.string.isRequired,
+  value: PropTypes.arrayOf(PropTypes.string),
+  choices: PropTypes.arrayOf(PropTypes.string).isRequired,
+});
+
 TaskDetailField.propTypes = {
-  field: PropTypes.shape({
-    type: PropTypes.string.isRequired,
-    prompt: PropTypes.string.isRequired,
-    value: PropTypes.string,
-  }).isRequired,
+  field: PropTypes.oneOfType([textFieldShape, radioFieldShape, checkboxFieldShape]).isRequired,
 };
