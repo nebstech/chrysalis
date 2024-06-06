@@ -7,9 +7,8 @@
   VITE_API_URL = "https://chrysalis-955f5f2f7411.herokuapp.com"
   VITE_SESSION_KEY = "insecure-session-key"
 
-[plugins]
-  [[plugins]]
-    package = "@netlify/plugin-cache-clear"
+[[plugins]]
+  package = "@netlify/plugin-cache-clear"
 
 [[redirects]]
   from = "/*"
