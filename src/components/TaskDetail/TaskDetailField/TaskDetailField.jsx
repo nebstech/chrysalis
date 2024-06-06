@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import TaskDetailTextField from './TaskDetailTextField.jsx';
 import TaskDetailRadioField from './TaskDetailRadioField.jsx';
 import TaskDetailCheckboxField from './TaskDetailCheckboxField.jsx';
 
@@ -6,6 +7,9 @@ export default function TaskDetailField({ field }) {
   let elem;
 
   switch (field.type) {
+    case 'text':
+      elem = <TaskDetailTextField field={field} />;
+      break;
     case 'radio':
       elem = <TaskDetailRadioField field={field} />;
       break;
@@ -24,6 +28,12 @@ export default function TaskDetailField({ field }) {
   );
 }
 
+const textFieldShape = PropTypes.shape({
+  type: PropTypes.string.isRequired,
+  prompt: PropTypes.string.isRequired,
+  value: PropTypes.string,
+});
+
 const radioFieldShape = PropTypes.shape({
   type: PropTypes.string.isRequired,
   prompt: PropTypes.string.isRequired,
@@ -39,6 +49,7 @@ const checkboxFieldShape = PropTypes.shape({
 
 TaskDetailField.propTypes = {
   field: PropTypes.oneOfType([
+    textFieldShape,
     radioFieldShape,
     checkboxFieldShape,
   ]).isRequired,
