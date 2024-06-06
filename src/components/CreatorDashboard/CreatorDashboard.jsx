@@ -24,7 +24,6 @@ const CreatorDashboard = () => {
         setTasks(userData.tasks);
       } catch (error) {
         console.error('Error fetching user data:', error);
-        // Optional: Redirect to login if there's an error
         navigate('/auth?mode=signin');
       }
     };
@@ -32,7 +31,19 @@ const CreatorDashboard = () => {
     fetchData();
   }, [loggedInUserID, isLoggedIn, navigate]);
 
-  if (!tasks) {
+  const userServiceIds = services.map(service => service.id);
+
+  const filteredPendingTasks = tasks.filter(task => 
+    userServiceIds.includes(task.serviceID) &&
+    (task.status === 'pending' || task.status === 'rejected')
+  );
+
+  const filteredAcceptedTasks = tasks.filter(task => 
+    userServiceIds.includes(task.serviceID) &&
+    task.status !== 'pending' && task.status !== 'rejected'
+  );
+
+  if (!tasks.length) {
     return <div>Loading...</div>;
   }
 
@@ -44,24 +55,22 @@ const CreatorDashboard = () => {
       </Link>
       <ServiceSelect services={services} setService={setCurrentService} />
 
-      {tasks.filter(task => task.status === 'pending' || task.status === 'rejected').length > 0 && (
+      {filteredPendingTasks.length > 0 && (
         <div>
           <h3>Pending Tasks</h3>
-          {tasks
+          {filteredPendingTasks
             .filter(task => currentService === null || task.serviceID === services[currentService]?.id)
-            .filter(task => task.status === 'pending' || task.status === 'rejected')
             .map(task => (
               <Task key={task.taskID} task={task} />
             ))}
         </div>
       )}
 
-      {tasks.filter(task => task.status !== 'pending' && task.status !== 'rejected').length > 0 && (
+      {filteredAcceptedTasks.length > 0 && (
         <div>
           <h3>Accepted Tasks</h3>
-          {tasks
+          {filteredAcceptedTasks
             .filter(task => currentService === null || task.serviceID === services[currentService]?.id)
-            .filter(task => task.status !== 'pending' && task.status !== 'rejected')
             .map(task => (
               <Link to={`/${loggedInUserID}/tasks/${task.taskID}`} key={task.taskID}>
                 <Task task={task} />

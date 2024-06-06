@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { getUserServiceById } from '../../services/apiServices';
+import { getUserServiceById, getUserDetailsById } from '../../services/apiServices';
 import styles from './Task.module.css';
 
 const statusToBadge = {
@@ -22,13 +22,16 @@ function Task({ task }) {
         const service = await getUserServiceById(task.serviceID);
         setService(service);
       } catch (error) {
+        console.error('Error fetching service:', error); // Debugging log
         setError('Service not found');
       }
 
+      ('Fetching client with ID:', task.client); // Debugging log
       try {
-        const client = await getUserServiceById(Number(task.client));
+        const client = await getUserDetailsById(Number(task.client));
         setClient(client);
       } catch (error) {
+        console.error('Error fetching client:', error); // Debugging log
         setError('Client not found');
       }
     };
@@ -48,7 +51,7 @@ function Task({ task }) {
       <div className={styles.flex}>
         <div className={styles.flexColumn}>
           <span className={styles.textLarge}>{service.name}</span>
-          <span className={styles.textSmall}>{client.name}</span>
+          <span className={styles.textSmall}>{client.username}</span> {/* Assuming the user detail has a username field */}
         </div>
         <span className={`${styles.textSmall} ${styles.badge} ${styles[statusToBadge[task.status]]}`}>
           {task.status}

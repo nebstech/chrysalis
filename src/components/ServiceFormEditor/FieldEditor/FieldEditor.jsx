@@ -13,14 +13,14 @@ const FieldEditor = ({ field, onChange, onMoveUp, onMoveDown, onDelete, onReplac
       theField = <TextFieldEditor field={field} onChange={onChange} />;
       break;
     case 'radio':
-      if (!field.options) {
-        field.options = [''];
+      if (!field.choices) {
+        field.choices = [];
       }
       theField = <RadioFieldEditor field={field} onChange={onChange} />;
       break;
     case 'checkbox':
-      if (!field.options) {
-        field.options = [''];
+      if (!field.choices) {
+        field.choices = [];
       }
       theField = <CheckboxFieldEditor field={field} onChange={onChange} />;
       break;
@@ -39,15 +39,9 @@ const FieldEditor = ({ field, onChange, onMoveUp, onMoveDown, onDelete, onReplac
     <div className={styles.card}>
       <div className={styles.grid}>
         <div className={styles.iconButtons}>
-          <button className={styles.iconButton} onClick={onMoveUp}>
-            ↑
-          </button>
-          <button className={styles.iconButton} onClick={onDelete}>
-            ✕
-          </button>
-          <button className={styles.iconButton} onClick={onMoveDown}>
-            ↓
-          </button>
+          <button className={styles.iconButton} onClick={onMoveUp}>↑</button>
+          <button className={styles.iconButton} onClick={onDelete}>✕</button>
+          <button className={styles.iconButton} onClick={onMoveDown}>↓</button>
         </div>
         <div className={styles.fieldEditor}>
           <ChangeServiceTypeDropdown field={field} onSelect={onReplace} />

@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ServiceField, RequestField } from '../../../classes/service/service';
 import TaskTextFieldEditor from './TaskTextFieldEditor';
 import TaskRadioFieldEditor from './TaskRadioFieldEditor';
 import TaskCheckboxFieldEditor from './TaskCheckboxFieldEditor';
 import styles from './TaskFieldEditor.module.css';
 
 export default function TaskFieldEditor({ field, currentRequestField, onUpdate }) {
+  if (!currentRequestField) {
+    return null; // Add this to handle undefined currentRequestField
+  }
+
   let editor;
   switch (field.type) {
     case 'text':
@@ -71,6 +74,6 @@ TaskFieldEditor.propTypes = {
       PropTypes.number,
       PropTypes.arrayOf(PropTypes.number),
     ]),
-  }).isRequired,
+  }),
   onUpdate: PropTypes.func.isRequired,
 };

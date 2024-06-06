@@ -41,10 +41,9 @@ export const Navbar = () => {
           {location.pathname !== '/auth' && (
             <ul className={`${styles.menuitems} ${menuOpen && styles.menuOpen}`} onClick={() => setMenuOpen(false)}>
               <li><Link to="/dashboard">Home</Link></li>
-              <li><Link to="/services">Services</Link></li>
               <li><Link to={`/profile/${loggedInUserID}`}>Profile</Link></li>
               {loggedInUserID ? (
-                <li><Link to="/search">Search</Link></li>
+                <li><Link to="/search">Services</Link></li>
               ) : (
                 <li><Link to="#about">About</Link></li>
               )}
