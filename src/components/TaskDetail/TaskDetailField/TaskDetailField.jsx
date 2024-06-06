@@ -1,5 +1,4 @@
-// src/components/TaskDetail/TaskDetailField/TaskDetailField.jsx
-import React from 'react';
+
 import PropTypes from 'prop-types';
 import TaskDetailCheckboxField from './TaskDetailCheckboxField.jsx';
 import TaskDetailRadioField from './TaskDetailRadioField.jsx';
