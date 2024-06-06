@@ -32,14 +32,14 @@ export default function Authentication() {
   const handleSignUp = async () => {
     if (register) {
       await register({ username, email, password });
-      navigate('/');
+      navigate('/dashboard');
     }
   };
 
   const handleLogin = async () => {
     if (login) {
       await login({ username, password });
-      navigate('/');
+      navigate('/dashboard');
     }
   };
 

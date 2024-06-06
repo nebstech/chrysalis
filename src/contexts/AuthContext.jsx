@@ -86,6 +86,7 @@ export function AuthContextProvider({ children }) {
         loaded,
         login,
         register,
+        setLoggedInUserID, 
       }}
     >
       {children}

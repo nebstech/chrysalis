@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
+import PropTypes from 'prop-types';
 import styles from './ServiceCard.module.css';
-import { Service, Task } from '../../classes/service/service';
 
 const taskColors = {
   pending: 'gray',
@@ -44,7 +44,7 @@ export default function ServiceCard({ service }) {
         <h3 className={styles.heading}>{service.name}</h3>
         <div className={styles.inset}>
           <div className={styles.flexRow}>
-            {taskCounts.map((taskCount, idx) => (
+            {taskCounts?.map((taskCount, idx) => (
               <div
                 key={idx}
                 className={styles.taskCount}
@@ -59,3 +59,14 @@ export default function ServiceCard({ service }) {
     </div>
   );
 }
+
+ServiceCard.propTypes = {
+  service: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    tasks: PropTypes.arrayOf(
+      PropTypes.shape({
+        status: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+  }).isRequired,
+};

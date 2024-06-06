@@ -23,6 +23,13 @@ export class ServiceCheckboxField {
   }
 }
 
+// ServiceField type is defined as a union of the different field types
+export const ServiceField = {
+  ServiceTextField,
+  ServiceRadioField,
+  ServiceCheckboxField
+};
+
 /**
  * Removes all leading and trailing whitespace from all form fields.
  *
@@ -53,6 +60,8 @@ export function sanitize(form) {
             prompt: field.prompt.trim(),
             choices: field.choices.map((choice) => choice.trim()),
           };
+        default:
+          throw new Error(`Unknown field type: ${field.type}`);
       }
     }),
   };

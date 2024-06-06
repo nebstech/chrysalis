@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { RequestField } from '../../../classes/service/service';
 import TaskDetailCheckboxField from './TaskDetailCheckboxField';
 import TaskDetailRadioField from './TaskDetailRadioField';
 import TaskDetailTextField from './TaskDetailTextField';
@@ -30,6 +29,30 @@ export default function TaskDetailField({ field }) {
   );
 }
 
+const textFieldShape = PropTypes.shape({
+  type: PropTypes.string.isRequired,
+  prompt: PropTypes.string.isRequired,
+  value: PropTypes.string,
+});
+
+const radioFieldShape = PropTypes.shape({
+  type: PropTypes.string.isRequired,
+  prompt: PropTypes.string.isRequired,
+  choices: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selection: PropTypes.number,
+});
+
+const checkboxFieldShape = PropTypes.shape({
+  type: PropTypes.string.isRequired,
+  prompt: PropTypes.string.isRequired,
+  choices: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selection: PropTypes.arrayOf(PropTypes.number).isRequired,
+});
+
 TaskDetailField.propTypes = {
-  field: PropTypes.instanceOf(RequestField).isRequired,
+  field: PropTypes.oneOfType([
+    textFieldShape,
+    radioFieldShape,
+    checkboxFieldShape,
+  ]).isRequired,
 };

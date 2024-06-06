@@ -1,34 +1,178 @@
 .container {
-  padding: 1rem;
+  padding: 16px;
+  background-color: #f9f9f9;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5%;
 }
 
 .flexColumn {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  margin-bottom: 16px;
+}
+
+.formGroup label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .separator {
-  margin: 1rem 0;
+  margin: 24px 0;
+  border: 0;
+  border-top: 1px solid #ddd;
 }
 
 .buttonGroup {
   display: flex;
+  gap: 8px;
   justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+}
+
+.buttonGroup button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.buttonGroup button:hover {
+  background-color: #0056b3;
 }
 
 .dialog {
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 16px;
   background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dialog h2 {
+  margin-top: 0;
+}
+
+.dialog p {
+  margin: 16px 0;
+}
+
+.dialog ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dialog ul li {
+  margin-bottom: 8px;
+}
+
+.dialog button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.dialog button:hover {
+  background-color: #0056b3;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+}
+
+.iconButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.iconButton {
+  padding: 8px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.iconButton:hover {
+  background-color: #0056b3;
+}
+
+.fieldEditor {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.promptLabel {
+  font-weight: bold;
+}
+
+.textField {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.option button {
+  padding: 8px;
+  border: none;
+  background-color: #dc3545;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.option button:hover {
+  background-color: #c82333;
+}
+
+.choices button {
+  padding: 8px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.choices button:hover {
+  background-color: #218838;
 }

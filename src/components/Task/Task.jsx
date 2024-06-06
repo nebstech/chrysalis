@@ -12,18 +12,36 @@ const statusToBadge = {
 };
 
 function Task({ task }) {
-  const [service, setService] = useState({});
-  const [client, setClient] = useState({});
+  const [service, setService] = useState(null);
+  const [client, setClient] = useState(null);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const runner = async () => {
-      const service = await getUserServiceById(task.serviceID);
-      const client = await getUserServiceById(Number(task.client));
-      setService(service);
-      setClient(client);
+      try {
+        const service = await getUserServiceById(task.serviceID);
+        setService(service);
+      } catch (error) {
+        setError('Service not found');
+      }
+
+      try {
+        const client = await getUserServiceById(Number(task.client));
+        setClient(client);
+      } catch (error) {
+        setError('Client not found');
+      }
     };
     runner();
   }, [task]);
+
+  if (error) {
+    return <div className={styles.error}>{error}</div>;
+  }
+
+  if (!service || !client) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={styles.card}>
@@ -43,7 +61,7 @@ function Task({ task }) {
 Task.propTypes = {
   task: PropTypes.shape({
     serviceID: PropTypes.number.isRequired,
-    client: PropTypes.string.isRequired,
+    client: PropTypes.number.isRequired,
     status: PropTypes.string.isRequired,
   }).isRequired,
 };

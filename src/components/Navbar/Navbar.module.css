@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 32px;
+  padding-top: 15px;
   z-index: 2;
   margin: 0 auto; /* Center the navbar */
 }
@@ -61,7 +61,8 @@
   background: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 15px;
 }
 
 .authButtonB {
@@ -73,6 +74,13 @@
   border-radius: 5px;
   font-weight: 600;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navIcon {
+  height: 40px;
+  width: auto;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /* Responsive styling */

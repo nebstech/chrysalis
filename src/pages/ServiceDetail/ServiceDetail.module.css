@@ -1,0 +1,50 @@
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subheading {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.separator {
+  margin: 20px 0;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tabList {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tabTrigger {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.tabTrigger:hover {
+  background-color: #f0f0f0;
+}
+
+.tabContent {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

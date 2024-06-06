@@ -1,3 +1,5 @@
+@import '../../vars.css';
+
 .dashboard {
   display: flex;
   flex-direction: column;
@@ -14,6 +16,7 @@
 .title {
   font-size: 1.25rem;
   font-weight: 600;
+  color: var(--font-color);
 }
 
 .taskList {

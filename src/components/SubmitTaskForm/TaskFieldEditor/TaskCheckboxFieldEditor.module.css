@@ -1,0 +1,5 @@
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add spacing between checkboxes */
+}

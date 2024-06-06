@@ -1,28 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CheckboxFieldEditor from './CheckboxFieldEditor';
 import RadioFieldEditor from './RadioFieldEditor';
 import TextFieldEditor from './TextFieldEditor';
-import { ServiceField } from '../../../classes/service/formField';
-import ChangeServiceTypeDropdown from './ChangeServiceTypeDropdown';
+import ChangeServiceTypeDropdown from './ChangeServiceTypeDropDown.jsx';
 import styles from './FieldEditor.module.css';
 
-export default function FieldEditor({
-  field,
-  onChange,
-  onMoveUp,
-  onMoveDown,
-  onDelete,
-  onReplace,
-}) {
+const FieldEditor = ({ field, onChange, onMoveUp, onMoveDown, onDelete, onReplace }) => {
   let theField;
   switch (field.type) {
     case 'text':
       theField = <TextFieldEditor field={field} onChange={onChange} />;
       break;
     case 'radio':
+      if (!field.options) {
+        field.options = [''];
+      }
       theField = <RadioFieldEditor field={field} onChange={onChange} />;
       break;
     case 'checkbox':
+      if (!field.options) {
+        field.options = [''];
+      }
       theField = <CheckboxFieldEditor field={field} onChange={onChange} />;
       break;
     default:
@@ -66,4 +65,15 @@ export default function FieldEditor({
       </div>
     </div>
   );
-}
+};
+
+FieldEditor.propTypes = {
+  field: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onMoveUp: PropTypes.func.isRequired,
+  onMoveDown: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onReplace: PropTypes.func.isRequired,
+};
+
+export default FieldEditor;

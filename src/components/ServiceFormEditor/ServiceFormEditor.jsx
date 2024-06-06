@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { useParams, Link } from 'react-router-dom';
 import {
   ServiceCheckboxField,
-  ServiceCreationFormData,
-  ServiceField,
   ServiceRadioField,
   ServiceTextField,
   sanitize,
@@ -11,6 +10,7 @@ import {
 } from '../../classes/service/formField';
 import FieldEditor from './FieldEditor/FieldEditor';
 import styles from './ServiceFormEditor.module.css';
+import { Navbar } from '../../components/Navbar/Navbar';
 
 export default function ServiceFormEditor({ onCommit }) {
   const { userID } = useParams();
@@ -148,6 +148,8 @@ export default function ServiceFormEditor({ onCommit }) {
   };
 
   return (
+    <>
+    <Navbar />
     <div className={styles.container}>
       <div className={styles.flexColumn}>
         <div className={styles.formGroup}>
@@ -208,5 +210,10 @@ export default function ServiceFormEditor({ onCommit }) {
         </div>
       )}
     </div>
+    </>
   );
 }
+
+ServiceFormEditor.propTypes = {
+  onCommit: PropTypes.func.isRequired,
+};

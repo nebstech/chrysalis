@@ -1,9 +1,12 @@
 .callToAction {
   padding: 60px 20px;
   text-align: center;
-  background-color: var(--color-accent);
-  color: white;
+  color: var(--color-text);
   margin-top: 5%;
+  display: grid;
+  place-items: center;
+  grid-template-rows: auto auto;
+  height: 100vh; /* Full screen height */
 }
 
 .title {
@@ -11,18 +14,48 @@
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 20px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, color 2s ease-in-out;
+  white-space: normal;
+  overflow: hidden;
+  max-width: 80%; /* Ensure it does not take up full width */
 }
 
-.description {
-  font-size: 18px;
-  margin-bottom: 40px;
+.visible {
+  opacity: 1;
+  animation: fillColor 4s forwards;
+}
+
+@keyframes fillColor {
+  0% {
+    color: rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    color: rgba(0, 0, 0, 1);
+  }
 }
 
 .ctaButton {
-  background-color: white;
-  color: var(--color-accent);
+  background-color: var(--color-accent);
+  color: white;
   padding: 15px 30px;
   text-decoration: none;
   border-radius: 5px;
   font-weight: 600;
+  display: none;
+  margin-top: 20px;
+}
+
+.visible + .ctaButton {
+  display: inline-block;
+  animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

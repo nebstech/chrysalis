@@ -1,65 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ServiceRadioField, ServiceField } from '../../../classes/service/formField';
-import NoOutlineIconButton from './NoOutlineIconButton';
-import { Cross1Icon, PlusIcon } from '@radix-ui/react-icons';
-import styles from './formField.module.css';
+import styles from './FieldEditor.module.css';
 
-export default function RadioFormField({ field, onChange }) {
-  function editChoice(index) {
-    return (evt) => {
-      const newChoices = [...field.choices];
-      newChoices.splice(index, 1, evt.currentTarget.value);
-      const newField = new ServiceRadioField(field.prompt, newChoices);
-      onChange(newField);
-    };
-  }
+const RadioFieldEditor = ({ field, onChange }) => {
+  const handleOptionChange = (index) => (event) => {
+    const newOptions = [...field.options];
+    newOptions[index] = event.target.value;
+    onChange({ ...field, options: newOptions });
+  };
 
-  function newChoice() {
-    const newChoices = [...field.choices, ``];
-    const newField = new ServiceRadioField(field.prompt, newChoices);
-    onChange(newField);
-  }
+  const addOption = () => {
+    const newOptions = [...field.options, ''];
+    onChange({ ...field, options: newOptions });
+  };
 
-  function deleteChoice(index) {
-    return () => {
-      // If there is only one choice, do not delete it
-      if (field.choices.length === 1) {
-        return;
-      }
-      const newChoices = [...field.choices];
-      newChoices.splice(index, 1);
-      const newField = new ServiceRadioField(field.prompt, newChoices);
-      onChange(newField);
-    };
-  }
+  const removeOption = (index) => () => {
+    const newOptions = field.options.filter((_, i) => i !== index);
+    onChange({ ...field, options: newOptions });
+  };
 
   return (
-    <div className={styles.flex}>
-      {field.choices.map((choice, idx) => {
-        return (
-          <div className={styles.flexRow} key={idx}>
-            <NoOutlineIconButton onClick={deleteChoice(idx)}>
-              <Cross1Icon />
-            </NoOutlineIconButton>
+    <div>
+      <label>
+        {field.prompt}
+        {(field.options || []).map((option, index) => (
+          <div key={index} className={styles.option}>
             <input
-              className={styles.textField}
-              placeholder={`Choice ${idx + 1}`}
-              value={choice}
-              onChange={editChoice(idx)}
+              type="text"
+              value={option}
+              onChange={handleOptionChange(index)}
             />
+            <button onClick={removeOption(index)}>✕</button>
           </div>
-        );
-      })}
-      <button className={styles.button} onClick={newChoice}>
-        <PlusIcon />
-        Add new choice
-      </button>
+        ))}
+        <button onClick={addOption}>Add Option</button>
+      </label>
     </div>
   );
-}
+};
 
-RadioFormField.propTypes = {
-  field: PropTypes.instanceOf(ServiceRadioField).isRequired,
+RadioFieldEditor.propTypes = {
+  field: PropTypes.shape({
+    prompt: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
   onChange: PropTypes.func.isRequired,
 };
+
+export default RadioFieldEditor;

@@ -1,0 +1,18 @@
+.blueSection {
+  background: linear-gradient(to bottom, var(--color-accent) 0%, var(--color-bg) 100%);
+  position: relative;
+  height: 100px; /* Adjust height as needed */
+  z-index: 2;
+}
+
+.curve {
+  position: absolute;
+  top: -50px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.curve img {
+  width: 80%;
+  height: auto;
+}

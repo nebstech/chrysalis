@@ -1,5 +1,5 @@
-import { FaRegCheckSquare, FaRegDotCircle, FaAlignLeft } from 'react-icons/fa';
-import styles from './ServiceType.module.css';
+import React from 'react';
+import { FaRegSquare, FaRegDotCircle, FaRegEdit } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
 export default function ServiceType({ type }) {
@@ -8,24 +8,21 @@ export default function ServiceType({ type }) {
     case 'text':
       elem = (
         <>
-          <FaAlignLeft />
-          Text
+          <FaRegEdit /> Text
         </>
       );
       break;
     case 'radio':
       elem = (
         <>
-          <FaRegDotCircle />
-          Radio
+          <FaRegDotCircle /> Radio
         </>
       );
       break;
     case 'checkbox':
       elem = (
         <>
-          <FaRegCheckSquare />
-          Checkbox
+          <FaRegSquare /> Checkbox
         </>
       );
       break;
@@ -34,11 +31,7 @@ export default function ServiceType({ type }) {
       break;
   }
 
-  return (
-    <div className={styles.flex}>
-      {elem}
-    </div>
-  );
+  return <span>{elem}</span>;
 }
 
 ServiceType.propTypes = {

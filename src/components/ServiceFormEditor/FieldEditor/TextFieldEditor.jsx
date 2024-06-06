@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './TextFormField.module.css';
-import { ServiceTextField, ServiceField } from '../../../classes/service/formField';
+import styles from './FieldEditor.module.css';
 
-export default function TextFormField({ field, onChange }) {
+const TextFieldEditor = ({ field, onChange }) => {
   const handleChange = (e) => {
     const newField = { ...field, value: e.target.value };
     onChange(newField);
@@ -20,9 +19,14 @@ export default function TextFormField({ field, onChange }) {
       />
     </div>
   );
-}
+};
 
-TextFormField.propTypes = {
-  field: PropTypes.instanceOf(ServiceTextField).isRequired,
+TextFieldEditor.propTypes = {
+  field: PropTypes.shape({
+    prompt: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+  }).isRequired,
   onChange: PropTypes.func.isRequired,
 };
+
+export default TextFieldEditor;

@@ -20,5 +20,10 @@ export default function TaskDetailCheckboxField({ field }) {
 }
 
 TaskDetailCheckboxField.propTypes = {
-  field: PropTypes.instanceOf(RequestCheckboxField).isRequired,
+  field: PropTypes.shape({
+    type: PropTypes.string.isRequired,
+    prompt: PropTypes.string.isRequired,
+    choices: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selection: PropTypes.arrayOf(PropTypes.number).isRequired,
+  }).isRequired,
 };
