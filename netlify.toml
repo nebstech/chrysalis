@@ -1,6 +1,6 @@
 [build]
   base = "/"
-  publish = "build"  # This should match the directory where your build output is generated
+  publish = "build" 
   command = "npm run build"
 
 [build.environment]
