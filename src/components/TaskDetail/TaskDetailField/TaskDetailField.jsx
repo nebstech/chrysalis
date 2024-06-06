@@ -1,7 +1,6 @@
 
 import PropTypes from 'prop-types';
 import TaskDetailTextField from './TaskDetailTextField.jsx';
-
 import TaskDetailRadioField from '/src/components/TaskDetail/TaskDetailField/TaskDetailRadioField.jsx';
 import TaskDetailCheckboxField from '/src/components/TaskDetail/TaskDetailField/TaskDetailCheckboxField.jsx';
 
