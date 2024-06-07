@@ -12,27 +12,27 @@
 }
 
 .content {
-  flex: 1; /* Make the content take up space */
+  flex: 1;
   padding: 20px;
-  text-align: left; /* Align text to the left for a similar look */
+  text-align: left;
 }
 
 .title {
   font-family: 'Montserrat', sans-serif;
   font-size: 50px;
   font-weight: 600;
-  color: #333333; /* Charcoal color */
+  color: #333333;
   margin-bottom: 20px;
 }
 
 .description {
   font-size: 18px;
-  color: #666666; /* Slightly lighter text color for the description */
+  color: #666666;
   margin-bottom: 40px;
 }
 
 .contactBtn {
-  background-color: #6C63FF; /* Adjust color as needed */
+  background-color: #6C63FF;
   color: white;
   padding: 10px 20px;
   text-decoration: none;
@@ -44,13 +44,13 @@
 }
 
 .imageContainer {
-  flex: 1; /* Adjust flex to fit the layout */
+  flex: 1;
   position: relative;
   max-width: 650px;
-  height: 700px; 
+  height: 700px;
   overflow: hidden;
   border-radius: 6px;
-  margin-left: 20%; /* Apply 20% margin left */
+  margin-left: 20%;
 }
 
 .slideshow {
@@ -80,5 +80,89 @@
   }
   100% {
     transform: translateY(-300%);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .title {
+    font-size: 40px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .contactBtn {
+    padding: 8px 16px;
+  }
+
+  .imageContainer {
+    height: 600px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .contactBtn {
+    padding: 6px 12px;
+  }
+
+  .imageContainer {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .content {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .contactBtn {
+    padding: 6px 12px;
+  }
+
+  .imageContainer {
+    max-width: 100%;
+    margin-left: 0;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .contactBtn {
+    padding: 4px 8px;
+  }
+
+  .imageContainer {
+    height: 300px;
   }
 }

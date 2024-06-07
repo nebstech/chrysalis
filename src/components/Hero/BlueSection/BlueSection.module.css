@@ -1,3 +1,5 @@
+@import "../../vars.css";
+
 .blueSection {
   background: linear-gradient(to bottom, var(--color-accent) 0%, var(--color-bg) 100%);
   position: relative;
@@ -10,9 +12,42 @@
   top: -50px;
   width: 100%;
   overflow: hidden;
+  text-align: center; /* Center the image horizontally */
 }
 
 .curve img {
   width: 80%;
   height: auto;
+  max-width: 800px; /* Ensure the image does not get too large */
+}
+
+/* Responsive styling */
+@media screen and (max-width: 1024px) {
+  .blueSection {
+    height: 80px; /* Adjust height for smaller screens */
+  }
+
+  .curve img {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .blueSection {
+    height: 70px; /* Adjust height for smaller screens */
+  }
+
+  .curve img {
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blueSection {
+    height: 60px; /* Adjust height for smaller screens */
+  }
+
+  .curve img {
+    width: 100%;
+  }
 }

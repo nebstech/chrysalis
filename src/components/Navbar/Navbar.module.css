@@ -11,6 +11,10 @@
   margin: 0 auto; /* Center the navbar */
 }
 
+.logoLink {
+  cursor: pointer;
+}
+
 .logo {
   height: 70px; 
 }
@@ -25,7 +29,6 @@
   -webkit-text-fill-color: transparent;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 
 .menu {
   display: flex;
@@ -90,6 +93,18 @@
     align-items: flex-start;
   }
 
+  .logo {
+    height: 50px; /* Adjust logo size for smaller screens */
+  }
+
+  .title {
+    font-size: 32px; /* Adjust title size for smaller screens */
+  }
+
+  .authButton {
+    display: none;
+  }
+
   .menu {
     position: absolute;
     right: 0px;
@@ -113,8 +128,8 @@
     border-radius: 10px;
     background: rgb(25, 55, 100);
     background: linear-gradient(0deg, 
-    rgba(25, 55, 100, 0.2) 0%, 
-    rgba(25, 55, 100, 1) 100% 
+      rgba(25, 55, 100, 0.2) 0%, 
+      rgba(25, 55, 100, 1) 100% 
     );
     padding: 24px 33px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);

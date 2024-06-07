@@ -1,3 +1,5 @@
+@import '../../../vars.css';
+
 .callToAction {
   padding: 60px 20px;
   text-align: center;
@@ -6,7 +8,7 @@
   display: grid;
   place-items: center;
   grid-template-rows: auto auto;
-  height: 100vh; /* Full screen height */
+  height: 100vh;
 }
 
 .title {
@@ -18,7 +20,7 @@
   transition: opacity 1s ease-in-out, color 2s ease-in-out;
   white-space: normal;
   overflow: hidden;
-  max-width: 40%; /* Ensure it does not take up full width */
+  max-width: 40%;
 }
 
 .visible {
@@ -46,8 +48,8 @@
   margin: 20px auto;
   width: 50%;
   height: 50%;
-  position: relative; /* Added for positioning the lines */
-  overflow: hidden; /* Added to hide overflowing lines */
+  position: relative;
+  overflow: hidden;
 }
 
 .logoTitle {
@@ -86,7 +88,6 @@
   text-decoration: underline;
 }
 
-/* Animation for diagonal white lines */
 @keyframes slideDiagonal {
   0% {
     transform: translate(-100%, -100%);
@@ -104,9 +105,9 @@
 .line {
   position: absolute;
   top: 0;
-  left: -50%; /* Start from outside the container */
+  left: -50%;
   width: 2px;
-  height: 100%; /* Ensure it covers the container diagonally */
+  height: 100%;
   background-color: white;
   animation: slideDiagonal 3s linear infinite;
   opacity: 40%;
@@ -155,4 +156,75 @@
 .line:nth-child(10) {
   left: 90%;
   animation-delay: 4.5s;
+}
+
+/* Responsive styling */
+@media screen and (max-width: 1024px) {
+  .title {
+    font-size: 30px;
+    max-width: 60%;
+  }
+
+  .logoContainer {
+    width: 70%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .callToAction {
+    padding: 40px 20px;
+    height: auto;
+  }
+
+  .title {
+    font-size: 26px;
+    max-width: 80%;
+  }
+
+  .logoContainer {
+    width: 90%;
+    height: auto;
+  }
+
+  .logoTitle {
+    font-size: 24px;
+  }
+
+  .logoDesc {
+    font-size: 14px;
+  }
+
+  .ctaLink {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .callToAction {
+    padding: 20px 10px;
+    height: auto;
+  }
+
+  .title {
+    font-size: 20px;
+    max-width: 100%;
+  }
+
+  .logoContainer {
+    width: 100%;
+    height: auto;
+  }
+
+  .logoTitle {
+    font-size: 20px;
+  }
+
+  .logoDesc {
+    font-size: 12px;
+  }
+
+  .ctaLink {
+    font-size: 14px;
+  }
 }
